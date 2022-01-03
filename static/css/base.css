@@ -1,0 +1,92 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: calc(100vh - 164px);
+    background-color: white;
+}
+
+.bg-foto {
+    background: url('/media/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hp {
+   margin-top: 3em;
+}
+
+.head-title {
+    color: #000;
+    background: rgba(0, 0, 0, 0.1);
+    font-family: "roboto", sans-serif;
+    text-align: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.site-logo {
+    text-transform: uppercase;
+    color: #000;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.btn-black {
+    background: #cfcfcf;
+    color: #222;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #cfcfcf;
+    color: #222 ;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+    border-radius: 50%;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
