@@ -40,7 +40,7 @@
         <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="site-logo text-black my-0"><strong>ALL FOR MAN</strong></h2>
+                    <h2 class="site-logo my-0"><strong>All 4 man</strong></h2>
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -86,15 +86,30 @@
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
                                     {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
+                                        €{{ grand_total|floatformat:2 }}
                                     {% else %}
-                                        $0.00
+                                        €0.00
                                     {% endif %}
                                 </p>
                             </div>
                         </a>
                     </li>
                 </ul>
+            </div>
+        </div>
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100" >
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar"
+                        aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+                  {% include 'includes/mobile_top_header.html' %}
+                  {% include 'includes/main_navbar.html' %}
+            </nav>
+        </div>
+        <div class="row text-center" id="delivery-banner">
+            <div class="col bg-banner">
+                <h4 class="my-1 banner-text">FREE DELIVERY ON ORDERS OVER ${{ free_shipping_threshold }}!</h4>
             </div>
         </div>
     </header>
