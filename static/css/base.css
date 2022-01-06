@@ -12,14 +12,18 @@ body {
 .bg-foto {
     background: url('/media/background.jpg') no-repeat center center fixed;
     background-size: cover;
+    background-attachment: fixed;
+    
 }
 
 .hp {
    margin-top: 10em;
 }
 
+
+
 .head-title {
-    color: #000;
+    color: white;
     background: rgba(0, 0, 0, 0.1);
     font-family: "roboto", sans-serif;
     text-align: center;
@@ -27,11 +31,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 .card-img-top:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
+}
+
+.card-body p {
+    text-align: center;
+    font-size: 1em;
+    color: #000;
+}
+
+.fa-user-tag {
+    color: #bd5a18;
 }
 /* from Bulma */
 .icon {
@@ -90,15 +103,105 @@ body {
 
 }
 
+.pr-detail {
+    font-family: "roboto", sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #000;
+}
+
+.cat-detail {
+    font-family: "roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    color: #bd5a18;
+}
+
+.break-line {
+    background-color: #bd5a18;
+}
+
+.desc-text {
+    font-family: "roboto", sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #000;
+}
+
+
+.new-text {
+    text-align: center;
+    color: #bd5a18;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.new-text:hover {
+    color: #bd5a18da;
+}
+
+.social-media {
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+span.badge {
+    font-size: 1em;
+    color: #bd5a18;
+    text-transform: uppercase;
+}
+
+ span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+#sort-selector {
+    color: #bd5a18;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+.opt-one {
+    background: #bd5a18 !important;
+    color: #fff !important;
+}
+
+.home-prod{
+    color: #bd5a18;
+    font-size: 1em;
+    font-family: "roboto", sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.home-prod:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    color: #bd5a18;
+    cursor: pointer;
+    border: 1px solid #bd5a18;
+}
+
+.btt-link:hover {
+    background-color: #bd5a18;
+    color: white;
+}
+
 
 /* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-}
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
@@ -112,5 +215,20 @@ body {
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+
+    .product-title {
+        padding-top: 20px;
     }
 }

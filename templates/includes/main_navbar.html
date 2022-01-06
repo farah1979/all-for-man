@@ -11,10 +11,10 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href=" " class="dropdown-item">All Products</a>
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %} " class="dropdown-item">All Products</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
             </div>
         </li>
 
@@ -23,10 +23,10 @@
                 Hair Care
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="haircare-link">
-                <a href="" class="dropdown-item">All Hair Care</a>
-                <a href="" class="dropdown-item">Hair Styling</a>
-                <a href="" class="dropdown-item">Shampoo</a>
-                <a href="" class="dropdown-item">Conditioner</a>
+                <a href="{% url 'products' %}?category=hair_styling,shampoo,conditioner" class="dropdown-item">All Hair Care</a>
+                <a href="{% url 'products' %}?category=hair_styling" class="dropdown-item">Hair Styling</a>
+                <a href="{% url 'products' %}?category=shampoo" class="dropdown-item">Shampoo</a>
+                <a href="{% url 'products' %}?category=conditioner" class="dropdown-item">Conditioner</a>
             </div>
         </li>
 
@@ -35,10 +35,10 @@
                 Body Care
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="toys-link">
-                <a href="" class="dropdown-item">All Body Care</a>
-                <a href="" class="dropdown-item">Hair & Body Wash</a>
-                <a href="" class="dropdown-item">Shower Gel</a>
-                <a href="" class="dropdown-item">Body Soap</a>
+                <a href="{% url 'products' %}?category=body_lotion,shower_gel,body_soap" class="dropdown-item">All Body Care</a>
+                <a href="{% url 'products' %}?category=body_lotion" class="dropdown-item">Body Lotion</a>
+                <a href="{% url 'products' %}?category=shower_gel" class="dropdown-item">Shower Gel</a>
+                <a href="{% url 'products' %}?category=body_soap" class="dropdown-item">Body Soap</a>
             </div>
         </li>
 
@@ -47,9 +47,9 @@
                 Beard & Moustache
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="beard-moustache-link">
-                <a href="" class="dropdown-item">All Beard & Moustache</a>
-                <a href="" class="dropdown-item">Moustache Care</a>
-                <a href="" class="dropdown-item">Beard Care</a>
+                <a href="{% url 'products' %}?category=moustache_care,beard_care" class="dropdown-item">All Beard & Moustache</a>
+                <a href="{% url 'products' %}?category=moustache_care" class="dropdown-item">Moustache Care</a>
+                <a href="{% url 'products' %}?category=beard_care" class="dropdown-item">Beard Care</a>
             </div>
         </li>
 
@@ -59,7 +59,7 @@
                 News In Store
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="news-link">
-                <a href="" class="dropdown-item">Webshop News</a>
+                <a href="{% url 'products' %}?category=webshop_news" class="dropdown-item">Webshop News</a>
             </div>
         </li>
     </ul>
