@@ -85,40 +85,62 @@
                 </div>
             </form>
         </div>
-        <div class="container">
-            <div class="card text-center mb-5 mt-5 ">
-                <div class="card-header card-detail-header-text">
-                    <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="true" href="#">Description</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="true" href="#">Delivery</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title text-left font-weight-bold">{{ product.name }}</h5>
-                    <p class="card-text text-left">{{ product.description }}</p>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-<div class=" justify-content-center align-items-center w-100 ">
-    <div class="row justify-content-center mb-5 mt-5">
-        <div class="col-10 block-two-intro">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-10 text-center">
-                    <h3 class="block-two-text"> See
-                        <a href="" class="reviews-text"> <i class="fab fa-readme reviews-icon"></i> <b>reviews</b>
-                        </a>
-                    </h3>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
+        <div class="container ">
+            <div class="row  mt-5 ">
+                <div class="col-12">
+                    <p>
+                        <a class="btn btn-black" data-toggle="collapse" href="#product-description" role="button" aria-expanded="false" aria-controls="product-description">Description</a>
+                        <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#delivery" aria-expanded="false" aria-controls="delivery">Delivery</button>
+                        <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#volym" aria-expanded="false" aria-controls="volym">Volym</button>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="collapse multi-collapse" id="product-description">
+                                <div class="card card-body">
+                                <p class="text-left text-black"> {{ product.description}}</p> 
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="collapse multi-collapse" id="delivery">
+                                <div class="card card-body">
+                                    Delivery:1-3 working days
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="collapse multi-collapse" id="volym">
+                            <div class="card card-body">
+                                {{ product.volym }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" justify-content-center align-items-center w-100 ">
+            <div class="row justify-content-center mb-5 mt-5">
+                <div class="col-10 block-two-intro">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-10 text-center">
+                            <h3 class="block-two-text"> See
+                                <a href="" class="reviews-text"> <i class="fab fa-readme reviews-icon"></i> <b>reviews</b>
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{block.super}}
+{% include 'products/includes/quantity_input_script.html' %}
+
 {% endblock %}
