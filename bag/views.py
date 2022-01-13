@@ -40,7 +40,6 @@ def adjust_bag(request, item_id):
         bag.pop(item_id)
         messages.success(request, f'Removed {product.name} from {bag[item_id]}')
 
-
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
