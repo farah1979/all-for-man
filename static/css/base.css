@@ -344,6 +344,29 @@ span.badge {
     margin-bottom: 0px;
 }
 
+.login-title, .logout-title, 
+.password-title, .register-title {
+    color: #bd5a18;
+}
+
+.login-home, .logout-can {
+    border: none;
+    color: #bd5a18;
+    font-size: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+}
+
+
+.primaryAction {
+    background-color: #fff;
+    color: #000;
+}
+
+.primaryAction:hover {
+    background-color: #000;
+    color: #fff;
+}
 /* Allauth from formatting */
 
 .allauth-form-inner-content p {
