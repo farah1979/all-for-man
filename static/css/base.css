@@ -81,9 +81,17 @@ main {
     width: fit-content;
 }
 
+.text-info{
+    color: #bd5a18 !important;
+}
+
 .btn-black {
     background: #343a40 !important;
     color: #cfcfcf ;
+}
+
+.shopping-basket {
+    color: #bd5a18;
 }
 
 .btn-black:hover,
@@ -137,13 +145,20 @@ main {
     color: #000;
 }
 
+.secure-btn-a {
+    background-color: #bd5a18;
+}
+.secure-btn{
+    color: #000 !important;
+}
 
 .new-text {
     text-align: center;
     color: #bd5a18;
-    font-size: 2.5em;
+    font-size: 2em;
     cursor: pointer;
 }
+
 
 .new-text:hover {
     color: #bd5a18da;
