@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from products.models import Product
+from django.shortcuts import render, redirect, reverse
+from products.models import Product, Category
+from django.db.models.functions import Lower
+from django.contrib import messages
+from django.db.models import Q
 
 
 def index(request):
@@ -50,4 +53,3 @@ def index(request):
     }
 
     return render(request, 'home/index.html', context)
-

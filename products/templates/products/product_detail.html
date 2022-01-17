@@ -16,19 +16,17 @@
             <div class="image-container mr-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top rounded" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top rounded mt-3" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid"
-                        src="https://images.unsplash.com/photo-1593075826385-75cdecda064c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                        alt="{{ product.name }}">
+                    <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 </a>
                 {% endif %}
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-            <div class="product-detail mb-5 mt-md-5">
+            <div class="product-detail mb-2 mt-md-5">
                 <p class="mb-0 mt-2 pr-detail">{{ product.name }}</p>
                 <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
                 <a href="{% url 'products' %}?category={{product.category.name}}"
@@ -44,6 +42,14 @@
                 <small class="text-muted">No Rating</small>
                 {% endif %}
             </div>
+                <div class="col">
+                    {% if request.user.is_superuser %}
+                        <small class="ml3">
+                            <a href="{% url 'edit_product' product.id %}" class="edit-prod">Edit</a> |
+                            <a href="{% url 'delete_product' product.id %}" class="text-danger delete-prod">Delete</a>
+                        </small>
+                    {% endif %}
+                </div>
             <form action="{% url 'add_to_bag' product.id%}" method="POST" class="form">
                 {% csrf_token %}
                 <div class="form-row">
@@ -124,7 +130,7 @@
 
         <div class=" justify-content-center align-items-center w-100 ">
             <div class="row justify-content-center mb-5 mt-5">
-                <div class="col-10 block-two-intro">
+                <div class="col-10">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-10 text-center">
                             <h3 class="block-two-text"> See
@@ -136,6 +142,47 @@
                 </div>
             </div>
         </div>
+<!--------------- Related Projects-->
+        <div class="  " >
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 ">
+                <h2 class="text-uppercase ml-3 mb-3" style="color:#bd5a18">Related Products</h2>
+                <div class="card " style="width: 15rem;">
+                    <div class="image-container mr-5">
+                        {% if product.image %}
+                        <a href="{{ product.image.url }}" target="_blank">
+                            <img class="card-img-top rounded mt-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="card-body pb-0 rounded">
+                        <p class="mb-0 mt-2">{{ product.name }}</p>
+                    </div>
+                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                        <div class="row">
+                            <div class="col">
+                                <a class=" text-decoration-none" href="{% url 'products' %}?category=webshop_news">
+                                    
+                                    <span class="p-2 mt-2 border-0 ">{{ c.friendly_name }}</span>
+                                </a>
+                                <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
+                                
+                                {% if product.rating %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1" style="color: #bd5a18;"></i> {{ product.rating }} / 5</small>
+                                {% else %}
+                                    <small class="text-muted">No Rating</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 

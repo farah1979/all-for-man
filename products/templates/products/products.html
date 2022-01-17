@@ -60,7 +60,7 @@
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1593075826385-75cdecda064c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid"" src="{{MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
                                 <div class="card-body pb-0 rounded">
@@ -81,6 +81,14 @@
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
                                         </div>
+                                    </div>
+                                    <div class="col">
+                                        {% if request.user.is_superuser %}
+                                            <small class="ml3">
+                                                <a href="{% url 'edit_product' product.id %}" class="edit-prod">Edit</a> |
+                                                <a href="{% url 'delete_product' product.id %}" class="text-danger delete-prod">Delete</a>
+                                            </small>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
