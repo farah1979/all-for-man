@@ -238,6 +238,35 @@ span.badge {
     text-transform: uppercase;
 }
 
+.product-title {
+    color: #bd5a18;
+    font-size: 2rem;
+    font-family: 'roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.prod-can {
+    color: #bd5a18;
+    font-size: 1rem;
+}
+
+.prod-can:hover {
+    color: #000;
+    border: 1px solid #bd5a18;
+}
+
+.add-button {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.add-button:hover {
+    color: #fff;
+    background-color: #000;
+}
+
 .total-bag {
     text-align: right;
     font-size: 1em;
@@ -357,7 +386,14 @@ span.badge {
     font-weight: 500;
 }
 
-
+.add {
+    border: none;
+    color: #bd5a18;
+    font-size: 2em;
+    font-family: 'roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
 .primaryAction {
     background-color: #fff;
     color: #000;
