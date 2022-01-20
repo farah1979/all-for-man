@@ -3,8 +3,20 @@ from .models import Question, Answer
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question_title', 'question_by', 'detail')
-    search_fields = ('question_title', 'detail')
+    list_display = (
+        'user',
+        'title',
+        'detail',
+    )
+
+    ordering = ('title',)
+
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = (
+        'user',
+        'question',
+        'body',
+    )
 
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Answer)
+admin.site.register(Answer, AnswerAdmin)

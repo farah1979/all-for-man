@@ -1,0 +1,8 @@
+<blockquote id="{{answer.id}}">
+    <p class="answer-body">{{answer.body}}</p>
+    {% if user.is_suberuser %}
+    <small class="answer-author"> By: {{ answer.user.username}}</small>
+    <button class="replay-button">Replay</button>
+    {% endif %}
+
+</blockquote>

@@ -3,15 +3,13 @@ html {
 }
 
 body {
-    height: calc(100vh - 164px);
+    min-height: calc(100vh - 240px);
     background-color: white;
     overflow-x: hidden;
     
 }
 
-main {
-   min-height: calc(28vh - 10px);
-}
+
 
 
 .bg-foto {
@@ -528,7 +526,55 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+.submit-button {
+    justify-self: center;
+    align-items: center;
+    border-radius: 20%;
+    background-color: #000;
+    color: #fff;
+}
 
+/*------------Questions Page*/
+
+.card-quest {
+    border-radius: 20px;
+    box-shadow: 5px 10px rgb(243, 243, 243);
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+.card-header-quest {
+    background-color: #000;
+    color: #fff;
+
+}
+
+.question-list-item-title {
+    font-family: 'roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.question-list-item-user {
+    float: left;
+    text-transform: uppercase;
+    margin: 0;
+
+}
+
+.card-body-quest {
+    margin: 0;
+
+}
+
+.btn-quest{
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
 /* -------------------------------- Media Queries */
 
 /* fixed top navbar only on medium and up */

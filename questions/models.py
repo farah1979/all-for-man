@@ -8,39 +8,24 @@ class Question(models.Model):
     from a cosmetic specialist
     """
     user = models.ForeignKey(User, on_delete=models.SET_NULL,
-                             null=True, blank=True)
-    question_title = models.CharField(max_length=300)
-    question_by = models.CharField(max_length=25, default='')
-    detail = models.TextField(max_length=800, null=True, blank=True)
-    created = models.DateTimeField(auto_now_add=True)
+                            null=True, blank=True, related_name='user_question')
+    title = models.CharField(max_length=300)
+    detail = models.TextField(max_length=800, null=True, blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.question_title
+        return self.title
 
+    def get_answers(self):
+        return self.answers.filter(parent=None)
 
 class Answer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.SET_NULL, blank=False, null=True)
-    detail = models.TextField(max_length=1000)
-    created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,
+                             null=True, blank=True, related_name='user_answer')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, blank=True, null=True, related_name='answers')
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
+    body = models.TextField(max_length=1000, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.detail
-
-
-# Comment
-class Comment(models.Model):
-    answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comment_user')
-    created = models.DateTimeField(auto_now_add=True)
-
-
-# UpVotes
-class UpVote(models.Model):
-    answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='upvote_user')
-
-
-# downVotes
-class DownVote(models.Model):
-    answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='downvote_user')
+        return self.body

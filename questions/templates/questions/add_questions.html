@@ -2,36 +2,48 @@
 {% load static %}
 
 {% block page_header %}
-	<div class="container header-container">
-		<div class="row">
-			<div class="col"></div>
-		</div>
-    </div> 
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
 {% endblock %}
 
+
 {% block content %}
-<!-- Add Question page  -->
-<div class="container ">
-   <div class="row">
-      <div class="col-12 text-center mt-3">
-         <br>
-         <h2 class=" mb-4 test-left">Questions</h2>
-         <p class="mb-2">Add Questions</p>
-         <br>
-      </div>
-   </div>
-   <div class="row pb-5">
-    <div class="col-12 col-md-6">
-            <form method="POST" action="{% url 'add_review' %}" class="form mb-2"
-                enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form | crispy }}
-                <div class="text-right">
-                    <a href="" class="btn">Cancel</a>
-                    <button class="btn" type="submit">Add Review</button>
+    <div class="container">
+        <div class="row justify-content-center align-content-center">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="logo-font mb-4 question-title">Questions</h2>
+                <h5 class="text-muted ">Add a Question</h5>
+                <hr>
+            </div>
+        </div>
+        <!-- form for users to add a Question-->
+        <div class="row pb-5 justify-content-center align-content-center">
+            <div class="col-12 col-md-6">
+                <div class="card card-quest">
+                    <form method="POST" action="{% url 'add_questions' %}" class="form mb-2"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="fieldWrapper">
+                            <label for="{{form.title.id_for_label}}">Title</label>
+                            {{form.title}}
+                            <span class="error">{{form.title.errors}}</span>
+                        </div>
+                        <div class="fieldWrapper">
+                            <label for="{{form.detail.id_for_label}}">Detail</label>
+                            {{form.detail}}
+                            <span class="error">{{form.detail.errors}}</span>
+                        </div>
+                        <div class="text-right">
+                            <a href="{% url 'questions' %}" class="btn">Cancel</a>
+                            <button class="btn" type="submit">Add Question</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
+        </div>
     </div>
-</div>
-</div> 
 {% endblock %}
