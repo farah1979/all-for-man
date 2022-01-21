@@ -4,7 +4,6 @@ from .models import Question, Answer
 from django.contrib.auth.models import User
 
 
-
 class NewQuestionForm(forms.ModelForm):
     class Meta:
         model = Question
@@ -13,7 +12,7 @@ class NewQuestionForm(forms.ModelForm):
         )
 
         fields = ['title', 'detail']
-        widgets ={
+        widgets = {
             'title': forms.TextInput(attrs={
                 'autofocus': True,
                 'placeholder': 'Question Title',
@@ -31,6 +30,13 @@ class NewAnswerForm(forms.ModelForm):
     class Meta:
         model = Answer
         fields = ['body']
+        widgets = {
+            'body': forms.Textarea(attrs={
+                'autofocus': True,
+                'placeholder': 'Answer details',
+                'rows': 6,
+            })
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

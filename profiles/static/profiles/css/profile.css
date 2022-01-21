@@ -19,3 +19,7 @@
     max-height: 416px; /* hieght of profile form + submit button */
     overflow-y: auto;
 }
+
+.profile-title {
+    color: #bd5a18;
+}

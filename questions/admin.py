@@ -4,7 +4,7 @@ from .models import Question, Answer
 
 class QuestionAdmin(admin.ModelAdmin):
     list_display = (
-        'user',
+        'author',
         'title',
         'detail',
     )

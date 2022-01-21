@@ -575,6 +575,51 @@ input[name='q']::placeholder {
     align-items: center;
     justify-items: center;
 }
+
+.submit-question {
+        display: block;
+        width: 120px;
+        height: 40px;
+        border: none;
+        border-radius: 20px;
+        background-color: #000;
+        color: #fff;
+        margin: 0 auto;
+        cursor: pointer;
+}
+
+.question-title-two {
+    font-family: 'roboto', sans-serif;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+}
+
+.question-detail,
+.answer-details {
+    font-family: 'roboto', sans-serif;
+    font-size: 1em;
+    margin-bottom: 6px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: #000 !important;
+}
+
+.question-author {
+    font-size: 14px;
+    color: #bd5a18;
+}
+
+.answers-container-heading {
+    font-size: 1em;
+    color: #000 !important;
+}
+
+.answer-by {
+    color: #bd5a18;
+    font-size: 1rem;
+    font-weight: 700;
+}
 /* -------------------------------- Media Queries */
 
 /* fixed top navbar only on medium and up */

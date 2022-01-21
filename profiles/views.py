@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404,reverse
 from django.contrib import messages
 from .models import UserProfile
 from django.contrib.auth.decorators import login_required
@@ -10,7 +10,7 @@ from checkout.models import Order
 @login_required
 def profile(request):
     """ Display the user's profile. """
-    if not request.user.is_superuser:
+    if not request.user.is_authenticated:
         messages.error(request, 'Sorry only store owners can do that.')
         return redirect(reverse('home'))
 
@@ -40,7 +40,7 @@ def profile(request):
 
 @login_required
 def order_history(request, order_number):
-    if not request.user.is_superuser:
+    if not request.user.is_authenticated:
         messages.error(request, 'Sorry only store owners can do that.')
         return redirect(reverse('home'))
 

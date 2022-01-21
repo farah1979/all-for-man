@@ -1,8 +1,8 @@
-<blockquote id="{{answer.id}}">
-    <p class="answer-body">{{answer.body}}</p>
-    {% if user.is_suberuser %}
-    <small class="answer-author"> By: {{ answer.user.username}}</small>
-    <button class="replay-button">Replay</button>
-    {% endif %}
 
-</blockquote>
+<div class="answer-heading">
+    <ul>
+        <li> <h4 class="answer-by">Answer by:{{answer.user.username}}</h4></li>
+        <li><p class="answer-details">{{answer.body}}</p></li>
+    </ul>
+    <p>{{anwer.created_by}}</p>
+</div>

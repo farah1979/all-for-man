@@ -33,10 +33,18 @@
                     </div>
                     <div class="card-body card-body-quest">
                         <p class="question-list-item-user" style="color: #bd5a18;">
-                            By: {{question.user.username}}
+                            By: {{question.author.username}}
                         </p>
-                        <p class="card-text">
-                        </p>
+                    </div>
+                    <div class="col">
+                        <small class="ml3">
+                            {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                    <a href="{% url 'delete_question' question.id %}" class="text-danger delete-prod">Delete</a> |
+                                    {% endif %}
+                                <a href="{% url 'edit_question' question.id %}" class="edit-prod">Edit</a> 
+                            {% endif %}
+                        </small>
                     </div>
                 </div>
             {% endfor %}

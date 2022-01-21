@@ -7,7 +7,7 @@ class Question(models.Model):
     Model for logged in users to ask a question that needs an answer 
     from a cosmetic specialist
     """
-    user = models.ForeignKey(User, on_delete=models.SET_NULL,
+    author = models.ForeignKey(User, on_delete=models.SET_NULL,
                             null=True, blank=True, related_name='user_question')
     title = models.CharField(max_length=300)
     detail = models.TextField(max_length=800, null=True, blank=True, default='')
@@ -29,3 +29,6 @@ class Answer(models.Model):
 
     def __str__(self):
         return self.body
+
+    def get_answers(self):
+        return Answer.objects.filter(parent=self)
