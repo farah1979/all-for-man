@@ -38,6 +38,8 @@
                     </div>
                     <div class="col">
                         <small class="ml3">
+                            <p class="mb-3">{{ question.created_at }}</p>
+
                             {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                     <a href="{% url 'delete_question' question.id %}" class="text-danger delete-prod">Delete</a> |

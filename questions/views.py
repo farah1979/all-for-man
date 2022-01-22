@@ -32,13 +32,14 @@ def view_questions(request, question_id):
                 answer.question = Question(pk=question_id)
                 answer.save()
                 messages.success(request, 'Our experts answer!')
-                return redirect(reverse('view_questions', question_id))
+                return redirect('view_questions', question_id=question_id)
             else:
                 messages.error(request, 'Please ckeck if the form is valid')
 
         except Exception as e:
+            print(e)
             messages.error(request, 'Sorry check your form')
-
+            
     question = Question.objects.get(pk=question_id)
 
     template = 'questions/view_questions.html'

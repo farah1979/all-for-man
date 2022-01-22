@@ -12,7 +12,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2 img-pro">
             <div class="image-container mr-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
@@ -42,14 +42,14 @@
                 <small class="text-muted">No Rating</small>
                 {% endif %}
             </div>
-                <div class="col">
-                    {% if request.user.is_superuser %}
-                        <small class="ml3">
-                            <a href="{% url 'edit_product' product.id %}" class="edit-prod">Edit</a> |
-                            <a href="{% url 'delete_product' product.id %}" class="text-danger delete-prod">Delete</a>
-                        </small>
-                    {% endif %}
-                </div>
+            <div class="col">
+                {% if request.user.is_superuser %}
+                <small class="ml3">
+                    <a href="{% url 'edit_product' product.id %}" class="edit-prod">Edit</a> |
+                    <a href="{% url 'delete_product' product.id %}" class="text-danger delete-prod">Delete</a>
+                </small>
+                {% endif %}
+            </div>
             <form action="{% url 'add_to_bag' product.id%}" method="POST" class="form">
                 {% csrf_token %}
                 <div class="form-row">
@@ -93,97 +93,105 @@
         </div>
     </div>
 
-        <div class="container ">
-            <div class="row  mt-5 ">
+    <div class="container ">
+        <div class="row  mt-5 ">
+            <div class="col-12">
+                <p>
+                    <a class="btn btn-black" data-toggle="collapse" href="#product-description" role="button"
+                        aria-expanded="false" aria-controls="product-description">Description</a>
+                    <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#delivery"
+                        aria-expanded="false" aria-controls="delivery">Delivery</button>
+                    <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#volym"
+                        aria-expanded="false" aria-controls="volym">Volym</button>
+                </p>
+            </div>
+            <div class="row">
                 <div class="col-12">
-                    <p>
-                        <a class="btn btn-black" data-toggle="collapse" href="#product-description" role="button" aria-expanded="false" aria-controls="product-description">Description</a>
-                        <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#delivery" aria-expanded="false" aria-controls="delivery">Delivery</button>
-                        <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#volym" aria-expanded="false" aria-controls="volym">Volym</button>
-                    </p>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="collapse multi-collapse" id="product-description">
-                                <div class="card card-body">
-                                <p class="text-left text-black"> {{ product.description}}</p> 
-                                </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="collapse multi-collapse" id="delivery">
-                                <div class="card card-body">
-                                    Delivery:1-3 working days
-                                </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="collapse multi-collapse" id="volym">
-                            <div class="card card-body">
-                                {{ product.volym }}
-                            </div>
+                    <div class="collapse multi-collapse" id="product-description">
+                        <div class="card card-body">
+                            <p class="text-left text-black"> {{ product.description}}</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class=" justify-content-center align-items-center w-100 ">
-            <div class="row justify-content-center mb-5 mt-5">
-                <div class="col-10">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-10 text-center">
-                            <h3 class="block-two-text"> See
-                                <a href="" class="reviews-text"> <i class="fab fa-readme reviews-icon"></i> <b>reviews</b>
-                                </a>
-                            </h3>
+                <div class="col-12">
+                    <div class="collapse multi-collapse" id="delivery">
+                        <div class="card card-body">
+                            Delivery:1-3 working days
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-<!--------------- Related Projects-->
-        <div class="  " >
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 ">
-                <h2 class="text-uppercase ml-3 mb-3" style="color:#bd5a18">Related Products</h2>
-                <div class="card " style="width: 15rem;">
-                    <div class="image-container mr-5">
-                        {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top rounded mt-3" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
-                    </div>
-                    <div class="card-body pb-0 rounded">
-                        <p class="mb-0 mt-2">{{ product.name }}</p>
-                    </div>
-                    <div class="card-footer bg-white pt-0 border-0 text-left">
-                        <div class="row">
-                            <div class="col">
-                                <a class=" text-decoration-none" href="{% url 'products' %}?category=webshop_news">
-                                    
-                                    <span class="p-2 mt-2 border-0 ">{{ c.friendly_name }}</span>
-                                </a>
-                                <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
-                                
-                                {% if product.rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1" style="color: #bd5a18;"></i> {{ product.rating }} / 5</small>
-                                {% else %}
-                                    <small class="text-muted">No Rating</small>
-                                {% endif %}
-                            </div>
+                <div class="col-12">
+                    <div class="collapse multi-collapse" id="volym">
+                        <div class="card card-body">
+                            {{ product.volym }}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class=" justify-content-center align-items-center w-100 ">
+        <div class="row justify-content-center mb-5 mt-5">
+            <div class="col-10">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-10 text-center">
+                        <h3 class="block-two-text"> See
+                            <a href="" class="reviews-text"> <i class="fab fa-readme reviews-icon"></i> <b>reviews</b>
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+                        <!--------------- Related Projects-->
+<div class="container-fluied">
+    <div class="row p-0 m-0">
+        <div class="col-12">
+        <h2 class="rel-pro"> 
+            <hr>
+            Related Products
+            <hr>
+         </h2>
+        </div>
+    </div>
+</div>
+<div class="container"> 
+    <div class="row mb-3 mt-3">
+        {% for product in related_products %}
+            <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="card h-100 border-0">
+                    {% if product.image %}
+                        <a href="{{ product.image.url }}" target="_blank">
+                            <img class="card-img-top rounded mt-3 mb-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    {% endif %}
+                    <div class="card-body">
+                        <a href="{% url 'product_detail' product.id %}"
+                            style="text-decoration: none; color: #000;">
+                            <p class="mb-0 mt-2 pr-detail">{{ product.name }}</p>
+                        </a>
+                        <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
+                        {% if product.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1" style="color: #bd5a18;"></i> {{ product.rating }}
+                                / 5</small>
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div> 
+</div>
+
 {% endblock %}
 
 {% block postloadjs %}

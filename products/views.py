@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
-
+import datetime
 
 def all_products(request):
     """ A view to show all products """
@@ -60,8 +60,11 @@ def product_detail(request, product_id):
     """ A view to show individual product-detail """
 
     product = get_object_or_404(Product, pk=product_id)
+    related_products = Product.objects.filter(category=product.category)[:4]
+
     context = {
         'product': product,
+        'related_products': related_products,
     }
     return render(request, 'products/product_detail.html', context)
 
