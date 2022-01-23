@@ -6,9 +6,12 @@ class Newsletters(models.Model):
     """ Model for site owners to post newsletters
      about the store"""
 
-    newsletters_title = models.CharField(max_length=40, null=True, blank=True)
-    newsletters_body = models.TextField(max_length=1000, null=True, blank=True)
-    newsletters_by = models.CharField(max_length=20, null=True, blank=True)
+    class Meta:
+        verbose_name_plural = 'newsletters'
+
+    newsletters_title = models.CharField(max_length=254, blank=True, null=True,)
+    newsletters_body = models.TextField(blank=True, null=True, default='')
+    newsletters_by = models.CharField(max_length=254, default='')
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

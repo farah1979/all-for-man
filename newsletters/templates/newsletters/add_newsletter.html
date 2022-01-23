@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-6">
+                <hr>
+                <h2 class="add mb-4" style="color:#bd5a18;">Newsletters</h2>
+                <h5 class="text-muted mb-4">Add a Newsletter</h5>
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+           <div class="col-12 col-md-6">
+                <form class="form mb-2" action="{% url 'add_newsletter' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form | crispy}}
+                    <div class="text-right">
+                        <a class="btn rounded-0 prod-can" href="{% url 'newsletters' %}">
+                           Cancle
+                        </a>
+                        <button class="btn add-button rounded-0" type="submit">Add Newsletter</button>
+                    </div>
+                </form>
+           </div>
+          
+        </div>
+    </div>
+{% endblock %}
+
+
