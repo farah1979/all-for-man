@@ -678,6 +678,15 @@ input[name='q']::placeholder {
     color: red;
 }
 
+.reviews-text-icon {
+    text-decoration: none;
+    color: #bd5a18;
+}
+
+.reviews-text-icon:hover {
+    text-decoration: underline;
+    color: #964612;
+}
 
 /* -------------------------------- Media Queries */
 
