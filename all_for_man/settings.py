@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import dj_database_url
 from pathlib import Path
 
 
@@ -122,14 +123,17 @@ WSGI_APPLICATION = 'all_for_man.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
 
-
+# DATABASES = {
+#  'default': dj_database_url.parse('postgres://ckpbqhjcarznqf:718ba2754f72866e98278927a84171d0912c1ad230657d6e4ba130b787db7c9d@ec2-52-209-171-51.eu-west-1.compute.amazonaws.com:5432/dbg8ja7i6qd28l')
+# }
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
