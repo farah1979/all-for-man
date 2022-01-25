@@ -1,1 +1,1 @@
-web: gunicorn all-for-man.wsgi:application
+web: gunicorn all_for_man.wsgi:application
