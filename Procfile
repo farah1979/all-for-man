@@ -1,0 +1,1 @@
+web: gunicorn all-for-man.wsgi:application
