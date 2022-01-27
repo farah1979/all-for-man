@@ -58,7 +58,7 @@
                         <div class="form-group w-50">
                             <div class="input-group input-group-{{ product.id }}">
                                 <div class="input-group-prepend">
-                                    <button class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ product.id }}"
+                                    <button class="decrement-qty btn btn-outline-black rounded-0 decrement-qty_{{ product.id }}"
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-minus"></i>
@@ -68,7 +68,7 @@
                                 <input class="form-control qty_input id_qty_{{ product.id }}" type="number"
                                     name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
                                 <div class="input-group-append">
-                                    <button class="increment-qty btn btn-black rounded-0 increment-qty_{{ product.id }}"
+                                    <button class="increment-qty btn btn-outline-black rounded-0 increment-qty_{{ product.id }}"
                                         data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-plus"></i>
@@ -85,7 +85,7 @@
                             </span>
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                        <input type="submit" class="btn btn-outline-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
@@ -94,14 +94,14 @@
     </div>
 
     <div class="container ">
-        <div class="row  mt-5 ">
+        <div class="row  mt-5 justify-content-center justify-content-center ">
             <div class="col-12">
                 <p>
-                    <a class="btn btn-black" data-toggle="collapse" href="#product-description" role="button"
+                    <a class="btn btn-outline-black rounded-0" data-toggle="collapse" href="#product-description" role="button"
                         aria-expanded="false" aria-controls="product-description">Description</a>
-                    <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#delivery"
+                    <button class="btn btn-outline-black rounded-0" type="button" data-toggle="collapse" data-target="#delivery"
                         aria-expanded="false" aria-controls="delivery">Delivery</button>
-                    <button class="btn btn-black" type="button" data-toggle="collapse" data-target="#volym"
+                    <button class="btn btn-outline-black rounded-0" type="button" data-toggle="collapse" data-target="#volym"
                         aria-expanded="false" aria-controls="volym">Volym</button>
                 </p>
             </div>

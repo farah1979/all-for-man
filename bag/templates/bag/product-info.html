@@ -1,0 +1,5 @@
+<a href="{% url 'product_detail' item.product.id %}">
+    <p class="my-0 text-black"><strong>{{ item.product.name }}</strong></p>
+</a>
+<p class="my-0 small text-muted">VOLYM: {{ item.product.volym|upper }}</p>
+<p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
