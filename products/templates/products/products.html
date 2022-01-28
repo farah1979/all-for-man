@@ -23,13 +23,15 @@
             </div>
         </div>
         <div class="row">
+           
             {% if categories|length == 1 %}
                 {% for category in categories %}
-                    <span class="pt-2 mt-2 text-black ">{{ category.description }}</span>
+                    <span class=" ml-3 mr-3 text-center text-black">{{ category.description }}</span>
                 {% endfor %}
             {% endif %}
+            
         </div>
-       
+        <hr>
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
