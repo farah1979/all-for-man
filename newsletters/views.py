@@ -28,7 +28,7 @@ def add_newsletter(request):
         form = NewslettersForm(request.POST, request.FILES)
         if form.is_valid():
             newsletter = form.save()
-            messages.success(request, 'You have added your newsletter successfully!')
+            messages.info(request, 'You have added your newsletter successfully!')
             return redirect(reverse('newsletters'))
         else:
             messages.error(request, 'Failed to add newsletter. please ensure the form is valid.')
@@ -37,8 +37,7 @@ def add_newsletter(request):
 
     template = 'newsletters/add_newsletter.html'
     context = {
-        'form': form,
-        'on_profile_page': True
+        'form': form
     }
 
     return render(request, template, context)

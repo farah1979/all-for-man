@@ -40,7 +40,7 @@
         var allQuantityInputs = $(`.input-group-${itemId} input[name='quantity']`);
         var currentValue = parseInt($(closestInput).val());
         $(allQuantityInputs).val(currentValue - 1);
-        handleEnableDisable(itemId, size);
+        handleEnableDisable(itemId);
     });
 
 </script>
