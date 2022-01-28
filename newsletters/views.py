@@ -38,6 +38,7 @@ def add_newsletter(request):
     template = 'newsletters/add_newsletter.html'
     context = {
         'form': form,
+        'on_profile_page': True
     }
 
     return render(request, template, context)
