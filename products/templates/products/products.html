@@ -22,16 +22,14 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
-        <div class="row">
-           
+        <div class="row justify-content-center align-items-center">
             {% if categories|length == 1 %}
                 {% for category in categories %}
-                    <span class=" ml-3 mr-3 text-center text-black">{{ category.description }}</span>
+                    <span class=" ml-5 mr-5 text-black">{{ category.description }}</span>
                 {% endfor %}
             {% endif %}
-            
         </div>
-        <hr>
+         <hr>
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
