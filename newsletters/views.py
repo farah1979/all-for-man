@@ -28,10 +28,12 @@ def add_newsletter(request):
         form = NewslettersForm(request.POST, request.FILES)
         if form.is_valid():
             newsletter = form.save()
-            messages.info(request, 'You have added your newsletter successfully!')
+            messages.info(request, 'You have added your newsletter \
+                successfully!')
             return redirect(reverse('newsletters'))
         else:
-            messages.error(request, 'Failed to add newsletter. please ensure the form is valid.')
+            messages.error(request, 'Failed to add newsletter. please ensure \
+                the form is valid.')
     else:
         form = NewslettersForm()
 
@@ -55,10 +57,12 @@ def edit_newsletter(request, newsletter_id):
         form = NewslettersForm(request.POST, request.FILES, instance=newsletter)
         if form.is_valid():
             form.save()
-            messages.success(request, 'You have been edit the newsletter successfully!')
+            messages.success(request, 'You have been edit the newsletter \
+                    successfully!')
             return redirect(reverse('newsletters'))
         else:
-            messages.error(request, 'Failed to update newsletter. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update newsletter. \
+                    Please ensure the form is valid.')
     else:
         form = NewslettersForm(instance=newsletter)
         messages.info(request, 'You will edit a newsletter')

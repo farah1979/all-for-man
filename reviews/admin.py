@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Reviews
 
+
 class ReviewsAdmin(admin.ModelAdmin):
     """ for register reviews model in admin panel"""
     list_display = (
@@ -12,5 +13,6 @@ class ReviewsAdmin(admin.ModelAdmin):
     )
 
     ordering = ('review_name',)
+
 
 admin.site.register(Reviews, ReviewsAdmin)

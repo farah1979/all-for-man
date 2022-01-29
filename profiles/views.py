@@ -1,10 +1,9 @@
-from django.shortcuts import render,redirect,get_object_or_404,reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from .models import UserProfile
 from django.contrib.auth.decorators import login_required
 from .forms import UserProfileForm
 from checkout.models import Order
-
 
 
 @login_required
@@ -48,7 +47,7 @@ def order_history(request, order_number):
 
     messages.info(request, (
             f'This is a past confirmation for order number {order_number}.'
-               'A confirmation email was sent on the order date.'))
+            'A confirmation email was sent on the order date.'))
 
     template = 'checkout/checkout_success.html'
     context = {

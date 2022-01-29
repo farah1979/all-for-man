@@ -40,10 +40,12 @@ def add_reviews(request):
         form = ReviewsForm(request.POST, request.FILES)
         if form.is_valid():
             review = form.save()
-            messages.success(request, 'You have added your review successfully!')
+            messages.success(request, 'You have added your review successfully\
+                        !')
             return redirect(reverse('reviews'))
         else:
-            messages.error(request, 'Failed to add your review. please ensure the form is valid.')
+            messages.error(request, 'Failed to add your review. please ensure \
+                the form is valid.')
     else:
         form = ReviewsForm()
 
@@ -67,10 +69,12 @@ def edit_review(request, review_id):
         form = ReviewsForm(request.POST, request.FILES, instance=review)
         if form.is_valid():
             form.save()
-            messages.success(request, 'You have been edit your review successfully!')
+            messages.success(request, 'You have been edit your \
+                review successfully!')
             return redirect(reverse('reviews'))
         else:
-            messages.error(request, 'Failed to update review. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update review. \
+                Please ensure the form is valid.')
     else:
         form = ReviewsForm(instance=review)
         messages.info(request, 'You will edit a your review')

@@ -7,9 +7,9 @@ from .models import Product, Category
 from .forms import ProductForm
 import datetime
 
+
 def all_products(request):
     """ A view to show all products """
-
     products = Product.objects.all()
     query = None
     categories = None
@@ -39,7 +39,8 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "Sorry! You didn't enter any search criteria")
+                messages.error(request, "Sorry! You didn't enter any \
+                    search criteria")
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -84,7 +85,8 @@ def add_product(request):
             messages.success(request, 'You have added product successfully!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. please ensure \
+                the form is valid.')
     else:
         form = ProductForm()
 
@@ -108,10 +110,12 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'You have been edit the product successfully!')
+            messages.success(request, 'You have been edit the \
+                product successfully!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. \
+                Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')

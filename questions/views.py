@@ -2,14 +2,13 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import Question, Answer
+from .models import Question
 from .forms import NewQuestionForm, NewAnswerForm
-
 
 
 def questions(request):
     """ A view to render all the questions with
-     thier related answers for all visitors"""
+    thier related answers for all visitors"""
     questions = Question.objects.all().order_by('-created_at')
 
     template = 'questions/questions.html'
@@ -19,8 +18,9 @@ def questions(request):
 
     return render(request, template, context)
 
-def view_questions(request, question_id):
 
+def view_questions(request, question_id):
+    """A view to render all cutomers questions"""
     answer_form = NewAnswerForm()
 
     if request.method == 'POST':
@@ -39,7 +39,7 @@ def view_questions(request, question_id):
         except Exception as e:
             print(e)
             messages.error(request, 'Sorry check your form')
-            
+
     question = Question.objects.get(pk=question_id)
 
     template = 'questions/view_questions.html'
@@ -49,6 +49,7 @@ def view_questions(request, question_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def add_questions(request):
@@ -64,18 +65,20 @@ def add_questions(request):
                 question = form.save(commit=False)
                 question.author = request.user
                 question.save()
-                messages.success(request, 'Your question has been saved successfully. Our experts will respond \
-                                to you as soon as possible')
+                messages.success(request, 'Your question has been saved successfully. \
+                    Our experts will respond to you as soon as possible')
             return redirect(reverse('questions'))
 
         except Exception as e:
-            messages.error(request, 'No question added, Please check the form is valid!')
+            messages.error(request, 'No question added,\
+                 Please check the form is valid!')
 
     template = 'questions/add_questions.html'
     context = {
         'form': form,
     }
     return render(request, template, context)
+
 
 @login_required
 def edit_question(request, question_id):
@@ -89,10 +92,12 @@ def edit_question(request, question_id):
         form = NewQuestionForm(request.POST, request.FILES, instance=question)
         if form.is_valid():
             form.save()
-            messages.success(request, 'You have been edit your question successfully!')
+            messages.success(request, 'You have been edit your \
+                question successfully!')
             return redirect(reverse('questions'))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product.\
+                Please ensure the form is valid.')
     else:
         form = NewQuestionForm(instance=question)
         messages.info(request, f'You are editing {question.title}')
@@ -104,6 +109,7 @@ def edit_question(request, question_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_question(request, question_id):

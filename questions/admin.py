@@ -11,12 +11,14 @@ class QuestionAdmin(admin.ModelAdmin):
 
     ordering = ('title',)
 
+
 class AnswerAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'question',
         'body',
     )
+
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
