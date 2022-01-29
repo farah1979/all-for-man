@@ -1,56 +1,46 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
+{% extends "base.html" %} {% load static %} {% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %} {% block content %}
+<div class="container">
+    <div class="row justify-content-center align-content-center">
+        <div class="col-12">
+            <hr />
+            <a href="{% url 'questions' %}" style="text-decoration: none; color: #bd5a18;">
+                <h2 class="logo-font mb-4 question-title-one">Questions</h2>
+            </a>
+            <h5 class="text-muted">Question With Answers</h5>
+            <hr />
         </div>
     </div>
-{% endblock %}
-
-
-{% block content %}
-   <div class="container ">
-      <div class="row justify-content-center align-content-center">
-         <div class="col-12">
-            <hr>
-            <a href="{% url 'questions' %}" style="text-decoration: none; color: #bd5a18;">
-               <h2 class="logo-font mb-4 question-title-one">Questions</h2>
-            </a>
-            <h5 class="text-muted ">Question With Answers</h5>
-            <hr>
-         </div>
-      </div>
-      <div class="card card-quest mb-5">
-         <div class="row justify-content-center align-content-center">
-             <div class="col-12">
-                  <h2 class="question-title-two">{{question.title}}</h2>
-                  <p class="question-body">{{question.detail}}</p>
-                  <span class="question-author">Author: {{question.author.username}}</span>
-                  <div class="answers-container">
-                     <hr style="border: 1px solid lightgray;">
-                     <h4 class="answers-container-heading logo-font">Answers from our beauty experts:</h4>
-                     {% if not question.answers.all %}
-                        <p class="no-answers-text text-muted">No Answers Yet! </p>
-                     {% else %}
-                        {% for answer in question.get_answers %}
-                           {% include 'includes/answer.html' %}
-                        {% endfor %}
-                     {% endif %}
-                  </div>
-                  {% if request.user.is_superuser %}
-                     <form action="{% url 'view_questions' question.id %}" method="POST" class="response-form">
-                        {% csrf_token %}
-                        <div class="fieldWrapper">
-                           <label for="{{answer_form.body.id_for_label}}">Expert Answer:</label>
-                           {{answer_form.body}}
-                        </div>
-                        <input type="submit" value="Send" class="submit-button submit-quest"/>
-                     </form>
-                  {% endif %}
-             </div>
-         </div>
-      </div>
-   </div>
+    <div class="card card-quest mb-5">
+        <div class="row justify-content-center align-content-center">
+            <div class="col-12">
+                <h2 class="question-title-two">{{question.title}}</h2>
+                <p class="question-body">{{question.detail}}</p>
+                <span class="question-author">Author: {{question.author.username}}</span>
+                <div class="answers-container">
+                    <hr style="border: 1px solid lightgray;" />
+                    <h4 class="answers-container-heading logo-font">Answers from our beauty experts:</h4>
+                    {% if not question.answers.all %}
+                    <p class="no-answers-text text-muted">No Answers Yet!</p>
+                    {% else %} {% for answer in question.get_answers %} {% include 'includes/answer.html' %} {% endfor %} {% endif %}
+                </div>
+                {% if request.user.is_superuser %}
+                <form action="{% url 'view_questions' question.id %}" method="POST" class="response-form">
+                    {% csrf_token %}
+                    <div class="fieldWrapper">
+                        <label for="{{answer_form.body.id_for_label}}">Expert Answer:</label>
+                        {{answer_form.body}}
+                    </div>
+                    <input type="submit" value="Send" class="submit-button submit-quest" />
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

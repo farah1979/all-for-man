@@ -1,26 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
     </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2 img-pro">
             <div class="image-container mr-5">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top rounded mt-3" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="card-img-top rounded mt-3" src="{{ product.image.url }}" alt="{{ product.name }}" />
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
                 </a>
                 {% endif %}
             </div>
@@ -29,15 +26,11 @@
             <div class="product-detail mb-2 mt-md-5">
                 <p class="mb-0 mt-2 pr-detail">{{ product.name }}</p>
                 <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
-                <a href="{% url 'products' %}?category={{product.category.name}}"
-                    style="text-decoration: none; color: #000;">
-                    <p class=" mt-2 mb-2 cat-detail">
-                        <i class="fas fa-user-tag"></i> {{ product.category.friendly_name }}
-                    </p>
+                <a href="{% url 'products' %}?category={{product.category.name}}" style="text-decoration: none; color: #000;">
+                    <p class="mt-2 mb-2 cat-detail"><i class="fas fa-user-tag"></i> {{ product.category.friendly_name }}</p>
                 </a>
                 {% if product.rating %}
-                <small class="text-muted"><i class="fas fa-star mr-1" style="color: #bd5a18;"></i> {{ product.rating }}
-                    / 5</small>
+                <small class="text-muted"><i class="fas fa-star mr-1" style="color: #bd5a18;"></i> {{ product.rating }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Rating</small>
                 {% endif %}
@@ -58,18 +51,15 @@
                         <div class="form-group w-50">
                             <div class="input-group input-group-{{ product.id }}">
                                 <div class="input-group-prepend">
-                                    <button class="decrement-qty btn btn-outline-black rounded-0 decrement-qty_{{ product.id }}"
-                                        data-item_id="{{ product.id }}">
+                                    <button class="decrement-qty btn btn-outline-black rounded-0 decrement-qty_{{ product.id }}" data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-minus"></i>
                                         </span>
                                     </button>
                                 </div>
-                                <input class="form-control qty_input id_qty_{{ product.id }}" type="number"
-                                    name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                <input class="form-control qty_input id_qty_{{ product.id }}" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" />
                                 <div class="input-group-append">
-                                    <button class="increment-qty btn btn-outline-black rounded-0 increment-qty_{{ product.id }}"
-                                        data-item_id="{{ product.id }}">
+                                    <button class="increment-qty btn btn-outline-black rounded-0 increment-qty_{{ product.id }}" data-item_id="{{ product.id }}">
                                         <span class="icon">
                                             <i class="fas fa-plus"></i>
                                         </span>
@@ -85,31 +75,28 @@
                             </span>
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
-                        <input type="submit" class="btn btn-outline-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                        <input type="submit" class="btn btn-outline-black rounded-0 text-uppercase mt-5" value="Add to Bag" />
                     </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}" />
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="container ">
-        <div class="row  mt-5 justify-content-center justify-content-center ">
+    <div class="container">
+        <div class="row mt-5 justify-content-center justify-content-center">
             <div class="col-12">
                 <p>
-                    <a class="btn btn-outline-black rounded-0" data-toggle="collapse" href="#product-description" role="button"
-                        aria-expanded="false" aria-controls="product-description">Description</a>
-                    <button class="btn btn-outline-black rounded-0" type="button" data-toggle="collapse" data-target="#delivery"
-                        aria-expanded="false" aria-controls="delivery">Delivery</button>
-                    <button class="btn btn-outline-black rounded-0" type="button" data-toggle="collapse" data-target="#volym"
-                        aria-expanded="false" aria-controls="volym">Volym</button>
+                    <a class="btn btn-outline-black rounded-0" data-toggle="collapse" href="#product-description" role="button" aria-expanded="false" aria-controls="product-description">Description</a>
+                    <button class="btn btn-outline-black rounded-0" type="button" data-toggle="collapse" data-target="#delivery" aria-expanded="false" aria-controls="delivery">Delivery</button>
+                    <button class="btn btn-outline-black rounded-0" type="button" data-toggle="collapse" data-target="#volym" aria-expanded="false" aria-controls="volym">Volym</button>
                 </p>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="collapse multi-collapse" id="product-description">
                         <div class="card card-body">
-                            <p class="text-left text-black"> {{ product.description}}</p>
+                            <p class="text-left text-black">{{ product.description}}</p>
                         </div>
                     </div>
                 </div>
@@ -131,15 +118,13 @@
         </div>
     </div>
 
-    <div class=" justify-content-center align-items-center w-100 ">
+    <div class="justify-content-center align-items-center w-100">
         <div class="row justify-content-center mb-5 mt-5">
             <div class="col-10">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-10 text-center">
-                        <h3 class="block-two-text"> 
-                            <a href="{% url 'reviews' %}" class="reviews-text-icon"> <i class="fab fa-readme"></i> 
-                                See Our Reviews <i class="fab fa-readme"></i>
-                            </a>
+                        <h3 class="block-two-text">
+                            <a href="{% url 'reviews' %}" class="reviews-text-icon"> <i class="fab fa-readme"></i> See Our Reviews <i class="fab fa-readme"></i> </a>
                         </h3>
                     </div>
                 </div>
@@ -148,55 +133,51 @@
     </div>
 </div>
 
-                        <!--------------- Related Projects-->
+<!--------------- Related Projects-->
 <div class="container-fluied">
     <div class="row p-0 m-0">
         <div class="col-12">
-        <h2 class="rel-pro"> 
-            <hr>
-            Related Products
-            <hr>
-         </h2>
+            <h2 class="rel-pro">
+                <hr />
+                Related Products
+                <hr />
+            </h2>
         </div>
     </div>
 </div>
-<div class="container"> 
+<div class="container">
     <div class="row mb-3 mt-3">
         {% for product in related_products %}
-            <div class="col-12 col-md-3 col-lg-3 col-xl-3">
-                <div class="card h-100 border-0">
-                    {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top rounded mt-3 mb-3" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
+        <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+            <div class="card h-100 border-0">
+                {% if product.image %}
+                <a href="{{ product.image.url }}" target="_blank">
+                    <img class="card-img-top rounded mt-3 mb-3" src="{{ product.image.url }}" alt="{{ product.name }}" />
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
+                </a>
+                {% endif %}
+                <div class="card-body">
+                    <a href="{% url 'product_detail' product.id %}" style="text-decoration: none; color: #000;">
+                        <p class="mb-0 mt-2 pr-detail">{{ product.name }}</p>
+                    </a>
+                    <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
+                    {% if product.rating %}
+                    <small class="text-muted"><i class="fas fa-star mr-1" style="color: #bd5a18;"></i> {{ product.rating }} / 5</small>
                     {% else %}
-                        <a href="">
-                            <img class="card-img-top rounded mt-3" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
+                    <small class="text-muted">No Rating</small>
                     {% endif %}
-                    <div class="card-body">
-                        <a href="{% url 'product_detail' product.id %}"
-                            style="text-decoration: none; color: #000;">
-                            <p class="mb-0 mt-2 pr-detail">{{ product.name }}</p>
-                        </a>
-                        <p class="lead mb-0 text-left font-weight-bold">€ {{ product.price }}</p>
-                        {% if product.rating %}
-                            <small class="text-muted"><i class="fas fa-star mr-1" style="color: #bd5a18;"></i> {{ product.rating }}
-                                / 5</small>
-                        {% else %}
-                            <small class="text-muted">No Rating</small>
-                        {% endif %}
-                    </div>
                 </div>
             </div>
+        </div>
         {% endfor %}
-    </div> 
+    </div>
 </div>
 
 {% endblock %}
-
 {% block postloadjs %}
 {{block.super}}
 {% include 'products/includes/quantity_input_script.html' %}
-
 {% endblock %}

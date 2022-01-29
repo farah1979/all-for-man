@@ -1,30 +1,25 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block page_header %}
-	<div class="container header-container">
-		<div class="row">
-			<div class="col"></div>
-		</div>
-    </div> 
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %} {% block content %}
 <!-- Question page  -->
-<div class="container ">
-   <div class="row">
-      <div class="col-12 text-center mt-3">
-         <br>
-         <h2 class=" mb-4 test-left" style="color:#bd5a18">FAQ</h2>
-         <p class="mb-2" style="font-size: 1.3em;">We are here to serve our valued customers and answer their questions</p>
-         <br>
-      </div>
-   </div>
-   <!---------------Question list-->
-   <div class="container">
-   <div class="row justify-content-center align-content-center item-content-center">
-        <div class="col-12 col-md-8">
-            {% for question in questions %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-3">
+            <br />
+            <h2 class="mb-4 test-left" style="color: #bd5a18;">FAQ</h2>
+            <p class="mb-2" style="font-size: 1.3em;">We are here to serve our valued customers and answer their questions</p>
+            <br />
+        </div>
+    </div>
+    <!---------------Question list-->
+    <div class="container">
+        <div class="row justify-content-center align-content-center item-content-center">
+            <div class="col-12 col-md-8">
+                {% for question in questions %}
                 <div class="card mb-3 card-quest">
                     <div class="card-header card-header-quest">
                         <a href="{% url 'view_questions' question.id %}" style="text-decoration: none; color: #fff;">
@@ -40,18 +35,16 @@
                         <small class="ml3">
                             <p class="mb-3">{{ question.created_at }}</p>
 
-                            {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                    <a href="{% url 'delete_question' question.id %}" class="text-danger delete-prod">Delete</a> |
-                                    {% endif %}
-                                <a href="{% url 'edit_question' question.id %}" class="edit-prod">Edit</a> 
+                            {% if request.user.is_authenticated %} {% if request.user.is_superuser %}
+                            <a href="{% url 'delete_question' question.id %}" class="text-danger delete-prod">Delete</a> | {% endif %}
+                            <a href="{% url 'edit_question' question.id %}" class="edit-prod">Edit</a>
                             {% endif %}
                         </small>
                     </div>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-   </div>
+    </div>
 </div>
-</div> 
 {% endblock %}

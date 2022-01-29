@@ -1,67 +1,55 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block page_header %}
+{% extends "base.html" %} {% load static %} {% block page_header %}
 <div class="container header-container">
-	<div class="row">
-		<div class="col"></div>
-	</div>
+    <div class="row">
+        <div class="col"></div>
+    </div>
 </div>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <!--------------------Reviews page-->
 <div class="container-fluied">
-	<div class="row justify-content-center align-items-center">
-		<div class="col-12 mb-5">
-			<img class="w-100" src="{{ MEDIA_URL }}reviews.jpg" class="img-fluid" alt="Responsive image">
-		</div>
-	</div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 mb-5">
+            <img class="w-100" src="{{ MEDIA_URL }}reviews.jpg" class="img-fluid" alt="Responsive image" />
+        </div>
+    </div>
 
-	<div class="container mb-5 pb-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 text-center">
-					<hr>
-					<h5 class="review-subtitle">
-						Your reviews is very important so that we can progress and provide our
-						 customers with the best services!
-					</h5>
-					<hr>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			{% for review in reviews %}
-			<div class="col-12">
-				<div class="card card-quest mb-3">
-					<div class="card-body text-center">
-						<p class="font-weight-bold text-uppercase newsletter-title"
-							style="font-size: 1.3em; letter-spacing: 1px; color: #bd5a18;">
-							<i class="fas fa-star"></i> {{ review.review_name }} <i class="fas fa-star"></i>
-						</p>
-						<p class="newsletter-text" style="font-size: 1.2em; line-height: 25px;
-								 font-family: 'roboto',sans-serif;">
-							{{ review.review_body }}
-						</p>
-						<p class="text-muted mt-5">{{ review.review_date }}</p>
-						<p class="review-text font-italic font-bold" style="color: #bd5a18;">By:
-							{{ review.review_by }}</p>
-						{% if request.user.is_authenticated %}
-							<small class="review-button ml-1">
-								<a class="edit-newsletter" href="{% url 'edit_review' review.id %}">Edit Review</a>
-							</small>
-						{% endif %}
-						{% if request.user.is_superuser %}
-							<small class="review-button">
-								<a class="delete-newsletter" href="{% url 'delete_review' review.id %}">| Delete Review</a>
-							</small>
-						{% endif %}
-					</div>
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
+    <div class="container mb-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <hr />
+                    <h5 class="review-subtitle">
+                        Your reviews is very important so that we can progress and provide our customers with the best services!
+                    </h5>
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for review in reviews %}
+            <div class="col-12">
+                <div class="card card-quest mb-3">
+                    <div class="card-body text-center">
+                        <p class="font-weight-bold text-uppercase newsletter-title" style="font-size: 1.3em; letter-spacing: 1px; color: #bd5a18;"><i class="fas fa-star"></i> {{ review.review_name }} <i class="fas fa-star"></i></p>
+                        <p class="newsletter-text" style="font-size: 1.2em; line-height: 25px; font-family: 'roboto', sans-serif;">
+                            {{ review.review_body }}
+                        </p>
+                        <p class="text-muted mt-5">{{ review.review_date }}</p>
+                        <p class="review-text font-italic font-bold" style="color: #bd5a18;">By: {{ review.review_by }}</p>
+                        {% if request.user.is_authenticated %}
+                        <small class="review-button ml-1">
+                            <a class="edit-newsletter" href="{% url 'edit_review' review.id %}">Edit Review</a>
+                        </small>
+                        {% endif %} {% if request.user.is_superuser %}
+                        <small class="review-button">
+                            <a class="delete-newsletter" href="{% url 'delete_review' review.id %}">| Delete Review</a>
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}

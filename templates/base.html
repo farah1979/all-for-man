@@ -42,7 +42,6 @@
 
     <title>All for man {% block extra_title %}{% endblock %}</title>
 </head>
-
 <body>
     <main>
     <header class="container-fluid  fixed-top">
@@ -67,7 +66,6 @@
                     </div>
                 </form>
             </div>
-
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
@@ -154,7 +152,6 @@
         <footer class="bg-dark text-center text-white " style="margin-top: 7rem;">
             <div class="container">
                 <section>
-
                     <div class="row social-media">
                         <div class="col-12 col-md-6 right">
                             <!-- Facebook -->
@@ -190,13 +187,11 @@
         </footer>
     </div>
 
-
-    {% block postloadjs %}
+{% block postloadjs %}
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
-    {% endblock %}
+{% endblock %}
 </main>
 </body>
-
 </html>
