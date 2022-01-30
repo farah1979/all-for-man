@@ -772,14 +772,3 @@ Pictures added in my **Reviews page** and **Newsletters Page** are taken from a 
 - Finally thank you Code Institute for teaching me how to make coding heappy.
 
 [Back to Table of contents](#table-of-contents)
-
-
-
-
-
-
-
-
-
-
-
