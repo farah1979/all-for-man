@@ -345,7 +345,9 @@ will navigate the user to news page and all visitors have the ability to see the
 <hr>
 
 **Footer**
-The footer is divided into two parts for aesthetic reasons, as they have two different background colors. One contains social media icons with links to social media pages that open in a new page, it is located on the right side of the footer and on the left side, correct data has been set for the admin in order to communicate with him when needed, and at the end of the footer I puted Copyright.
+  - The footer is divided into two parts for aesthetic reasons, as they have two different background colors. One contains social media icons with links to social media pages that open in a new page, it is located on the right side of the footer and on the left side, correct data has been set for the admin in order to communicate with him when needed, and at the end of the footer I puted Copyright.
+  - I have linked all the social media links regarding the family business to get to know us more and to know how to use the products.
+  - Linkedin link is under construction and we have not put a link to it at the moment.
 
 [Back to Table of contents](#table-of-contents)
 <hr>
@@ -426,6 +428,7 @@ The footer is divided into two parts for aesthetic reasons, as they have two dif
 ### Questins App
 #### Questions Model
 | Name     | Database Key  | Field Type | Type Validation |
+| ----------- | ------------ | ------------- | ------------------------------------- |
 | Author   | auther    |  ForeignKey    | User, on_delete=models.SET_NULL, null=True, blank=True related_name='user_question'|
 | Title | title | CharField     | max_length=300         |
 | Detail | detail | TextField     | max_length=800, null=True, blank=True, default='' |
@@ -433,6 +436,7 @@ The footer is divided into two parts for aesthetic reasons, as they have two dif
 
 #### Answer Model
 | Name   | Database Key  | Field Type | Type Validation |
+| ----------- | ------------ | ------------- | ------------------------------------- |
 | User   | user    | ForeignKey     | User, on_delete=models.SET_NULL, null=True, blank=True related_name='user_answer'|
 | Question | question | ForeignKey     | Question, on_delete=models.CASCADE, blank=True, null=True, related_name='answers'|
 | Parent | parent | ForeignKey     | 'self', null=True, blank=True, on_delete=models.CASCADE |
@@ -484,9 +488,9 @@ The footer is divided into two parts for aesthetic reasons, as they have two dif
 
 | Name           | Database Key   | Field Type   | Type Validation          |
 | ----------- | ------------ | ------------- | ------------------------------------- |
-| Order          | order          | ForeignKey   | Order, null=False, blank=False, on_delete=models.CASCADE,related_name='lineitems' |
+| Order          | order          | ForeignKey   | Order, null=False, blank=False, on_delete=models.CASCADE,related_name='lineitems'                |
 
-| Product        | product        | ForeignKey   | Product, null=False, blank=False, on_delete=models.CASCADE  |
+| Product        | product        | ForeignKey   | Product, null=False, blank=False, on_delete=models.CASCADE                            |
 
 | Quantity       | quantity       | IntegerField | null=False, blank=False, default=0    |
 
