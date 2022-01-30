@@ -427,8 +427,8 @@ will navigate the user to news page and all visitors have the ability to see the
 
 ### Questins App
 #### Questions Model
-| Name     | Database Key  | Field Type | Type Validation |
-| ----------- | ------------ | ------------- | ------------------------------------- |
+| Name          | Database Key  | Field Type | Type Validation |
+| ------------- | ------------- | ---------- | --------------- |
 | Author   | auther    |  ForeignKey    | User, on_delete=models.SET_NULL, null=True, blank=True related_name='user_question'|
 | Title | title | CharField     | max_length=300         |
 | Detail | detail | TextField     | max_length=800, null=True, blank=True, default='' |
