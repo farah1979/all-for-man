@@ -763,7 +763,7 @@ Pictures added in my **Reviews page** and **Newsletters Page** are taken from a 
 
 ## Acknowledgements
   - The idea for the site was taken by a family and it helped me the Code Institute project, **Boutique Ado**. I used it as a base and then adapted it to build this website on it.
-  - - The CI Slack community, always supportive and informative!
+  - The CI Slack community, always supportive and informative!
   - Of course I must mention my wonderful mentor **Akshat Garg** for all his patience, help and ideas during this project, flexibility and availability.
   - In addition, I would like to thank all the tutors who are always available to provide support, advice and guidance, as I received great and wonderful help from them and all of them were patient and understanding.<br>
   [Student suport](https://learn.codeinstitute.net/ci_support/diplomainsoftwaredevelopment/tutor)
