@@ -486,14 +486,11 @@ will navigate the user to news page and all visitors have the ability to see the
 #### OrderLine Model
 
 
-| Name           | Database Key   | Field Type   | Type Validation          |
-| ----------- | ------------ | ------------- | ------------------------------------- |
+| Name          | Database Key  | Field Type | Type Validation |
+| ------------- | ------------- | ---------- | --------------- |
 | Order          | order          | ForeignKey   | Order, null=False, blank=False, on_delete=models.CASCADE,related_name='lineitems'                |
-
 | Product        | product        | ForeignKey   | Product, null=False, blank=False, on_delete=models.CASCADE                            |
-
 | Quantity       | quantity       | IntegerField | null=False, blank=False, default=0    |
-
 | Lineitem Total | lineitem_total | DecimalField | max_digits=6, decmial_places=2, null=False, blank=False, editable=False   |
 
 [Back to Table of contents](#table-of-contents)
